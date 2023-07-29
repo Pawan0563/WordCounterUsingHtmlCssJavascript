@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+    <h1>Word and character counter</h1>
+    <textarea id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0</span> words and
+        <span id="char">0</span> character
+    </p>
+
+    <script>
+        let textbox = document.getElementById("textbox");
+        textbox.addEventListener('input', function () {
+            var text = this.value;//this value means all the character written in the textbox are store in the text variable.
+            let char = text.length;
+            document.getElementById("char").innerHTML = char;
+
+
+            text = text.trim();//here spaces is removed from starting and end,
+            let word = text.split(" ");//it break the words when space is come.
+            let cleanlist = word.filter(function (elm) {//here filter is property in this propertu all the words is passes one by one and store the words in an 
+                 //array(cleanlist). and only count the words not spaces in bteween words ok.
+                return elm != "";
+            })
+           // console.log(cleanlist);
+            document.getElementById("word").innerHTML = cleanlist.length;//it count the length of an array
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>
